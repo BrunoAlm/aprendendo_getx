@@ -15,7 +15,7 @@ class MeuApp extends StatelessWidget {
         GetPage(name: '/login', page: () => const LoginPage()),
         GetPage(
           name: '/home',
-          transition: Transition.rightToLeft,
+          transition: Transition.downToUp,
           page: () => const HomePage(),
         ),
       ],
