@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:teste1/view/login/widgets/input_decoration.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
-
+  const LoginPage({Key? key, required this.titulo}) : super(key: key);
+  final String titulo;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.indigo,
         centerTitle: true,
-        title: const Text(
-          'Teste1',
-          style: TextStyle(fontSize: 25),
+        title: Text(
+          titulo,
+          style: const TextStyle(fontSize: 25),
         ),
       ),
       body: Center(
@@ -26,41 +27,35 @@ class LoginPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              TextFormField(
-                decoration: InputDecoration(
-                  labelText: 'Usuário',
-                  labelStyle:
-                      const TextStyle(color: Colors.white, fontSize: 15),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-                    borderSide:
-                        const BorderSide(color: Colors.white, width: 1.5),
+              Row(
+                children: [
+                  Text('Entre ou'),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'cadastre-se',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all(Colors.indigo[300]),
+                      foregroundColor:
+                          MaterialStateProperty.all(Colors.indigo[800]),
+                    ),
                   ),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-                    borderSide: const BorderSide(color: Colors.white, width: 2),
-                  ),
-                ),
+                  Text('para continuar:'),
+                ],
               ),
               TextFormField(
-                decoration: InputDecoration(
-                  labelText: 'Senha',
-                  labelStyle:
-                      const TextStyle(color: Colors.white, fontSize: 15),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-                    borderSide:
-                        const BorderSide(color: Colors.white, width: 1.5),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-                    borderSide: const BorderSide(color: Colors.white, width: 2),
-                  ),
-                ),
+                decoration: meuInputDec("Usuário"),
+              ),
+              TextFormField(
+                decoration: meuInputDec("Senha"),
               ),
               const SizedBox(height: 20),
               ElevatedButton(
                 style: ButtonStyle(
+                  padding: MaterialStateProperty.all(const EdgeInsets.all(20)),
                   backgroundColor: MaterialStateProperty.all(Colors.black38),
                 ),
                 child: const Text('Login'),

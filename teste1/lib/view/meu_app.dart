@@ -12,7 +12,9 @@ class MeuApp extends StatelessWidget {
     return GetMaterialApp(
       initialRoute: '/login',
       getPages: [
-        GetPage(name: '/login', page: () => const LoginPage()),
+        GetPage(
+            name: '/login',
+            page: () => const LoginPage(titulo: "Testando login page")),
         GetPage(
           name: '/home',
           transition: Transition.downToUp,
